@@ -3,11 +3,11 @@
 
 #include "clock_global.h"
 #include <QWidget>
-class CLOCK_EXPORT My_analog_clock: public QWidget
+class CLOCK_EXPORT MyAnalogClock: public QWidget
 {
     Q_OBJECT
 public:
-    My_analog_clock(QWidget *parent = nullptr);
+    MyAnalogClock(QWidget *parent = nullptr);
 
 protected:
    void paintEvent(QPaintEvent *event) override;

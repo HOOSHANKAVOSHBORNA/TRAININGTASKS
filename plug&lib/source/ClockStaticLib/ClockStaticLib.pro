@@ -1,6 +1,8 @@
-QT       += core gui
+QT -= gui
+QT += widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+TEMPLATE = lib
+CONFIG += staticlib
 
 CONFIG += c++11
 
@@ -16,28 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp \
-    mainwindow.cpp
+    clockstaticlib.cpp
 
 HEADERS += \
-    mainwindow.h
-
-FORMS += \
-    mainwindow.ui
+    clockstaticlib.h
 
 # Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
+unix {
+    target.path = $$[QT_INSTALL_PLUGINS]/generic
+}
 !isEmpty(target.path): INSTALLS += target
-
-
-
-
-
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-clock-Desktop_Qt_5_13_1_GCC_64bit-Debug/release/ -lclock
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-clock-Desktop_Qt_5_13_1_GCC_64bit-Debug/debug/ -lclock
-else:unix: LIBS += -L$$PWD/../build-clock-Desktop_Qt_5_13_1_GCC_64bit-Debug/ -lclock
-
-INCLUDEPATH += $$PWD/../clock
-DEPENDPATH += $$PWD/../clock
