@@ -1,17 +1,14 @@
-#include "clockstaticlib.h"
-
+#include "clockstatlib.h"
 #include <QtWidgets>
 
-
-ClockStaticLib::ClockStaticLib(QWidget *parent)
-
+ClockStatLib::ClockStatLib(QWidget *parent)
     : QWidget(parent)
 
 {
 
     QTimer *timer = new QTimer(this);
 
-    connect(timer, &QTimer::timeout, this, QOverload<>::of(&ClockStaticLib::update));
+    connect(timer, &QTimer::timeout, this, QOverload<>::of(&ClockStatLib::update));
 
     timer->start(1000);
 
@@ -23,7 +20,7 @@ ClockStaticLib::ClockStaticLib(QWidget *parent)
 
 
 
-void ClockStaticLib::paintEvent(QPaintEvent *)
+void ClockStatLib::paintEvent(QPaintEvent *)
 
 {
     static const QPoint hourHand[3] = {
@@ -102,5 +99,3 @@ void ClockStaticLib::paintEvent(QPaintEvent *)
     }
 
 }
-
-

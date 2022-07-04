@@ -2,7 +2,7 @@
 #include <QtWidgets>
 
 
-MyAnalogClock::MyAnalogClock(QWidget *parent)
+ClockDynLib::ClockDynLib(QWidget *parent)
 
     : QWidget(parent)
 
@@ -10,7 +10,7 @@ MyAnalogClock::MyAnalogClock(QWidget *parent)
 
     QTimer *timer = new QTimer(this);
 
-    connect(timer, &QTimer::timeout, this, QOverload<>::of(&MyAnalogClock::update));
+    connect(timer, &QTimer::timeout, this, QOverload<>::of(&ClockDynLib::update));
 
     timer->start(1000);
 
@@ -22,7 +22,7 @@ MyAnalogClock::MyAnalogClock(QWidget *parent)
 
 
 
-void MyAnalogClock::paintEvent(QPaintEvent *)
+void ClockDynLib::paintEvent(QPaintEvent *)
 
 {
     static const QPoint hourHand[3] = {
@@ -101,5 +101,3 @@ void MyAnalogClock::paintEvent(QPaintEvent *)
     }
 
 }
-
-

@@ -1,7 +1,7 @@
 QT -= gui
 QT += widgets
 TEMPLATE = lib
-DEFINES += CLOCK_LIBRARY
+DEFINES += CLOCKDYNLIB_LIBRARY
 
 CONFIG += c++11
 
@@ -20,7 +20,7 @@ SOURCES += \
     clockdynlib.cpp
 
 HEADERS += \
-    clock_global.h \
+    ClockDynLib_global.h \
     clockdynlib.h
 
 # Default rules for deployment.

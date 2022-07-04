@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -18,5 +17,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void LoadPlugin();
 };
 #endif // MAINWINDOW_H
