@@ -16,7 +16,7 @@ ClockDynLib::ClockDynLib(QWidget *parent)
 
 
     setWindowTitle(tr("Analog Clock"));
-    resize(500, 500);
+
 
 }
 
