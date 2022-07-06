@@ -4,4 +4,5 @@ SUBDIRS += \
     ClockDynLib \
     ClockStatLib \
     DynPlugClock/customwidgetplugin.pro \
-    ShowClock
+    ShowClock \
+    staticlibclk

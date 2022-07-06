@@ -26,6 +26,19 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
+LIBS +=-L../staticlibclk
+macx-xcode {
+    LIBS += -lstaticlibclockplugin$($${QMAKE_XCODE_LIBRARY_SUFFIX_SETTING})
+} else {
+    LIBS += -lstaticlibclockplugin
+    if(!debug_and_release|build_pass):CONFIG(debug, debug|release) {
+        mac:LIBS = $$member(LIBS, 0) $$member(LIBS, 1)_debug
+        win32:LIBS = $$member(LIBS, 0) $$member(LIBS, 1)d
+    }
+}
+CONFIG += install_ok
+
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

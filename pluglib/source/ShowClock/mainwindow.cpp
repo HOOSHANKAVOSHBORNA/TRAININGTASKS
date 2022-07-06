@@ -27,7 +27,11 @@ MainWindow::~MainWindow()
 void MainWindow::LoadPlugin()
 {
     const auto staticInstances = QPluginLoader::staticInstances();
-
+    for (QObject *plugin1 : staticInstances){
+        auto iClock = qobject_cast<QDesignerCustomWidgetInterface *>(plugin1);
+        QWidget* StatPlugin = iClock->createWidget(nullptr);
+        ui->gridLayout_2->addWidget(StatPlugin,0,2);
+    }
     QDir pluginsDir;
     pluginsDir = QDir(qApp->applicationDirPath());
     pluginsDir.cd("..");
@@ -37,9 +41,9 @@ void MainWindow::LoadPlugin()
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         QObject *plugin = loader.instance();
         if(plugin){
-            auto iClock = qobject_cast<QDesignerCustomWidgetInterface *>(plugin);
-            QWidget* DynPlugin = iClock->createWidget(nullptr);
-            ui->gridLayout_2->addWidget(DynPlugin,0,2);
+            auto iClock2 = qobject_cast<QDesignerCustomWidgetInterface *>(plugin);
+            QWidget* DynPlugin = iClock2->createWidget(nullptr);
+            ui->gridLayout_2->addWidget(DynPlugin,0,3);
         }
 
 }}

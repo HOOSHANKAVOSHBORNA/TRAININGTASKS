@@ -1,6 +1,8 @@
 #include "mainwindow.h"
-
+#include <QtPlugin>
 #include <QApplication>
+
+Q_IMPORT_PLUGIN(staticlibclockPlugin)
 
 int main(int argc, char *argv[])
 {
